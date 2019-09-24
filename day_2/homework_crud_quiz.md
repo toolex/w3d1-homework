@@ -56,5 +56,8 @@ To stop SQL injections like hacking through user inputs.
 Look at the `find_by_id` and `find_by_address` methods in the `Property` class.
 
 Q10. What do they take in as their arguments?
+find_by_id uses the id of property 2
+find_by_address uses the VARCHAR or string input
 
 Q11. What are their return values?
+A class or when looking in the database, a single row. I think.
