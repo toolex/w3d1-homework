@@ -7,10 +7,30 @@ Use the solution to this afternoon's Property Tracker lab to answer the followin
 In our Property Tracker application:
 
 Q1. Where are we instantiating instances of the `Property` class?
+In the property.rb file we create the class, using it in the console.rb file much like a runner file.
 
 Q2. Where are we defining the SQL that enables us to save the ruby `Property` object into the database?
+In the save method
+
+sql = "INSERT INTO properties
+    (
+      address,
+      value,
+      bedrooms,
+      build
+    )
+    VALUES
+    (
+      $1,$2,$3,$4
+    )
+    RETURNING id"
+
+    and then
+
+    db.prepare("save", sql)
 
 Q3. In `console.rb`, which lines modify the database?
+Any time property# is followed by a method that edits the database save, delete or update.
 
 Q4. Why do we not define the id of a `Property` object at the point we instantiate it (‘new it up’)?
 
