@@ -31,8 +31,8 @@ class Film
   def self.all
     sql = "SELECT * FROM films"
     results = SqlRunner.run(sql)
-    films = results.map { |films_hash| Customer.new(films_hash)}
-    return customers
+    films = results.map { |films_hash| Film.new(films_hash)}
+    return films
   end
 
 
