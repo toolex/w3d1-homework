@@ -54,6 +54,10 @@ class Customer
     return total_tickets.length
   end
 
+  def buy_ticket(film)
+    @funds -= film.price
+  end
+
   def self.delete_all
     sql = "DELETE FROM customers"
     SqlRunner.run(sql)
