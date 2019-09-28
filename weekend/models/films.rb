@@ -44,6 +44,16 @@ class Film
     return customer_hashes.map{ |customer| Customer.new(customer)}
   end
 
+  def customers_seeing_film()
+    sql = "SELECT customers.* FROM customers
+    INNER JOIN tickets ON customers.id = tickets.customer_id
+    WHERE film_id = $1"
+    values = [@id]
+    customer_hashes = SqlRunner.run(sql, values)
+    total_attendes = customer_hashes.map{ |customer| Customer.new(customer)}
+    return total_attendes.length
+  end
+
   def self.delete_all
     sql = "DELETE FROM films"
     SqlRunner.run(sql)
